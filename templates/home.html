@@ -7,35 +7,41 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
      
    <style> 
-       #banner {width:100%; height: 360px; object-fit: cover;}
+       #banner {width:100%; height: 360px; object-fit: cover; margin-bottom: 16px;}
    </style>
   </head>
-  <body>
 
-    <div>
-       <h1 class="text-center mt-4 mb-4"> SDSS Careers </h1>
-       <img class=img-fluid id="banner" src =" static/banner.jpg" height=320">
+  <body>
+     
+     {% include 'nav.html' %}
+     <h1 class="text-center mt-4 mb-4"> SDSS Careers </h1>
+     <img class=img-fluid id="banner" src =" static/banner.jpg" >
     
+     <div class="container">
        <h2 class="text-center"> About SDSS Careers</h2>
+
+       <div class="row" style="margin-bottom: 16px;">
+         <div class="col-md-6">
        <p class="lead"> The SDSS Lab (Sustainable Development Solutions & Strategies Lab) is dedicated to advancing global sustainability through data-driven research and innovative solutions. Our lab focuses on analyzing and interpreting data related to the United Nations' Sustainable Development Goals (SDGs), providing insights and strategies to support policymakers, organizations, and communities in their efforts to achieve these goals. </p>
-    
+         </div>
+       <div class="s-mone- d-md-block col-md-6">
+       <img src="/static/image.jpeg" style="height:200px; width: 400px;">
+       </div>
+      </div>
+
        <h2 class="text-center mt-2 mb-4"> Open Positions</h2>
        
-       <div> 
-         {{% for jobs in jobs%}} 
-
-          <h4> {{job['title']}}</h4> 
-          <div> location: {{job['location']}}</div>
-       </div>
+       <div class="container"> 
+          {% for job in jobs %}
+           {% include 'jobitem.html' %}
           {% endfor %}
        </div>
 
-      <div class="text-center"> 
-        <button class="btn btn-primary"> Contact Us </button> 
-      </div>
-        
-      <p class="text-center mt-4"> Copyright 2024, SDSS CAREERS</p>
-    </div>
-
+       <div class="text-center"> 
+          <a class="btn btn-primary" href="mailto:attaullahkhan5440@gmail.com?subject=Question%20about%20Job%20Openings&body=My%20Name%3A%0D%0AMy%20Question%3A"> Help Center </a> 
+          <p class="text-center mt-4"> Copyright 2024, SDSS CAREERS</p>
+       </div>
+  </div>
+   {% include 'footer.html' %}
   </body>
 </html>
